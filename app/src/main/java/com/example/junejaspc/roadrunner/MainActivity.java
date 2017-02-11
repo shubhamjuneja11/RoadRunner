@@ -134,7 +134,9 @@ GoogleApiClient mGoogleApiClient;
                                     Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Toast.makeText(MainActivity.this, "op", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(MainActivity.this,WalkActivity.class);
+                            startActivity(intent);
                         }
                         // ...
                     }
