@@ -83,6 +83,13 @@
             android:text="SEE ROUTE"
             android:onClick="fun2"
             android:background="@drawable/card_background"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let's Go"
+            android:onClick="fun3"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/card_background"/>
 
     </LinearLayout>
 

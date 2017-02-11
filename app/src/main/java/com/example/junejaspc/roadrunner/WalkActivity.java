@@ -14,6 +14,7 @@ import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 
 public class WalkActivity extends AppCompatActivity {
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
