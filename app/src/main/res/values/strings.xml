@@ -22,6 +22,7 @@
     <string name="name">Fullname</string>
     <string name="username">UserName</string>
     <string name="auth_failed">SignIn Failed</string>
+    <!--<string name="CLIENT_ID">900249697593-lv9hsn1ivjhgk8l6ge7lnld09mjsv6fa.apps.googleusercontent.com</string>-->
     <string name="CLIENT_ID">900249697593-lv9hsn1ivjhgk8l6ge7lnld09mjsv6fa.apps.googleusercontent.com</string>
     <string name="title_activity_private_maps">Map</string>
     <string name="title_activity_public_maps">Map</string>
