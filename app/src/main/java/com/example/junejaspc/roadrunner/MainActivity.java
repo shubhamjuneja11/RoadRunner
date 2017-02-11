@@ -29,7 +29,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,View.OnClickListener {
 GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
-    private String email="";
+    public static String email="";
     private FirebaseAuth.AuthStateListener mAuthListener;
 SharedPreferences sharedPreferences;
 
@@ -65,7 +65,7 @@ SharedPreferences sharedPreferences;
         };
         email=sharedPreferences.getString("email","");
         if(!email.trim().equals("")){
-            Intent intent=new Intent(this,FitApiActivity.class);
+            Intent intent=new Intent(this,PrivateMapsActivity.class);
             startActivity(intent);
         }
     }

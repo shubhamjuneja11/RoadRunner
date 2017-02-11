@@ -22,8 +22,9 @@ public class DistanceClass {
     public void setDistance(double distance) {
         this.distance = distance;
     }
-
+public DistanceClass(){}
     public DistanceClass(String email, double distance) {
+
 
         this.email = email;
         this.distance = distance;

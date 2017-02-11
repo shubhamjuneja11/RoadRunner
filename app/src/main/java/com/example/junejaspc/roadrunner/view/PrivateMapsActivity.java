@@ -3,11 +3,14 @@ package com.example.junejaspc.roadrunner.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.junejaspc.roadrunner.MainActivity;
 import com.example.junejaspc.roadrunner.R;
 import com.example.junejaspc.roadrunner.WalkActivity;
+import com.example.junejaspc.roadrunner.modelclasses.DistanceClass;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -26,6 +29,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class PrivateMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 LatLng s,e;
+   double x=0,g=0;
     private static final int EARTH_RADIUS = 6371; // Approx Earth radius in KM
 
     TextView dest,start,dist;
@@ -67,7 +71,13 @@ LatLng s,e;
         firebase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                WalkActivity data=dataSnapshot.getValue(WalkActivity.class);
+                Log.e("abcd",dataSnapshot.getKey());
+                Log.e("abcd",dataSnapshot.getValue().toString());
+                DistanceClass data=dataSnapshot.getValue(DistanceClass.class);
+                if(Constants.convert2(data.getEmail()).equals(MainActivity.email))
+                {
+                    x= data.getDistance();
+                }
                 //if(data)
             }
 
@@ -141,8 +151,10 @@ try {
                 if(f==1){start.setText(place.getName());
                 s=place.getLatLng();
                 }
-                else {dest.setText(place.getName());e=place.getLatLng();
-                    double g=distance(s.latitude,s.longitude,e.latitude,e.longitude);
+                else {
+                    e=place.getLatLng();
+                    dest.setText(place.getName());e=place.getLatLng();
+                   g=distance(s.latitude,s.longitude,e.latitude,e.longitude);
                     dist.setText(g+"");}
                 //Log.i(TAG, "Place: " + place.getName());
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
@@ -154,5 +166,8 @@ try {
                 // The user canceled the operation.
             }
         }
+    }
+    public void fun3(View view){
+        firebase.push().setValue(new DistanceClass(MainActivity.email,g+x));
     }
 }
