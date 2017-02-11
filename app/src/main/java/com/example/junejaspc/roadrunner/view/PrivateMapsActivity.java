@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.junejaspc.roadrunner.R;
+import com.example.junejaspc.roadrunner.WalkActivity;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
@@ -25,6 +30,7 @@ LatLng s,e;
 
     TextView dest,start,dist;
     private GoogleMap mMap;
+    Firebase firebase;
     int f;
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     public static double distance(double startLat, double startLong,
@@ -56,6 +62,35 @@ LatLng s,e;
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Constants.fun();
+        firebase=new Firebase(Constants.leader);
+        firebase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                WalkActivity data=dataSnapshot.getValue(WalkActivity.class);
+                //if(data)
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     /**

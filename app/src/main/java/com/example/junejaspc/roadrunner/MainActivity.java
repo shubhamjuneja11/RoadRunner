@@ -1,6 +1,8 @@
 package com.example.junejaspc.roadrunner;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.junejaspc.roadrunner.view.FitApiActivity;
 import com.example.junejaspc.roadrunner.view.PrivateMapsActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -26,13 +29,15 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,View.OnClickListener {
 GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
+    private String email="";
     private FirebaseAuth.AuthStateListener mAuthListener;
-
+SharedPreferences sharedPreferences;
 
     int RC_SIGN_IN=10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences=getSharedPreferences("my", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -58,7 +63,11 @@ GoogleApiClient mGoogleApiClient;
                 // ...
             }
         };
-
+        email=sharedPreferences.getString("email","");
+        if(!email.trim().equals("")){
+            Intent intent=new Intent(this,FitApiActivity.class);
+            startActivity(intent);
+        }
     }
     @Override
     public void onStart() {
@@ -101,6 +110,10 @@ GoogleApiClient mGoogleApiClient;
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
+            SharedPreferences.Editor editor=sharedPreferences.edit();
+            String x=acct.getEmail();
+            editor.putString("email",x);
+            editor.commit();
             Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
             firebaseAuthWithGoogle(acct);
 
@@ -138,9 +151,11 @@ GoogleApiClient mGoogleApiClient;
                                     Toast.LENGTH_SHORT).show();
                         }
                         else {
+
                             Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(MainActivity.this, PrivateMapsActivity.class);
                             startActivity(intent);
+
                         }
                         // ...
                     }
