@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.junejaspc.roadrunner.MainActivity;
 import com.example.junejaspc.roadrunner.R;
 import com.example.junejaspc.roadrunner.WalkActivity;
+import com.example.junejaspc.roadrunner.model.Data;
 import com.example.junejaspc.roadrunner.modelclasses.DistanceClass;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -34,7 +35,7 @@ LatLng s,e;
 
     TextView dest,start,dist;
     private GoogleMap mMap;
-    Firebase firebase;
+    Firebase firebase,firebase2;
     int f;
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     public static double distance(double startLat, double startLong,
@@ -55,9 +56,11 @@ LatLng s,e;
     public static double haversin(double val) {
         return Math.pow(Math.sin(val / 2), 2);
     }
+    String decide;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        decide=getIntent().getStringExtra("decide");
         setContentView(R.layout.activity_private_maps);
         start=(TextView)findViewById(R.id.starting_point);
         dest=(TextView)findViewById(R.id.destination_point);
@@ -68,6 +71,7 @@ LatLng s,e;
         mapFragment.getMapAsync(this);
         Constants.fun();
         firebase=new Firebase(Constants.leader);
+        firebase2=new Firebase(Constants.publicf);
         firebase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -160,6 +164,7 @@ try {
                 else {
                     e=place.getLatLng();
                     dest.setText(place.getName());e=place.getLatLng();
+                    if(e!=null&&s!=null)
                    g=distance(s.latitude,s.longitude,e.latitude,e.longitude);
                     dist.setText(g+"");}
                 //Log.i(TAG, "Place: " + place.getName());
@@ -176,5 +181,8 @@ try {
     public void fun3(View view){
         Log.e("pip",MainActivity.email);
         firebase.child(Constants.convert1(MainActivity.email)).setValue(x+g);
+        if(decide.equals("public"))
+        firebase2.push().setValue(new Data(MainActivity.email,start.getText().toString(),dest.getText().toString(),
+                dist.getText().toString()));
     }
 }

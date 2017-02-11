@@ -26,9 +26,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <TextView
-                android:text="Lajpat Nagar"
+                android:text="Origin"
                 android:layout_width="0sp"
                 android:onClick="fun"
+                android:textSize="25dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/starting_point"/>
@@ -49,9 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <TextView
-                android:text="Robin"
+                android:text="Destination"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:textSize="25dp"
                 android:layout_weight="1"
                 android:onClick="fun"
                 android:id="@+id/destination_point"/>
@@ -70,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <TextView
-                android:text="Robin"
+                android:text="Distance"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
