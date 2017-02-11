@@ -1,4 +1,28 @@
 <resources>
     <string name="app_name">RoadRunner</string>
     <string name="client">856235224949-cf6e6ai1tg17kn8sln3a5p344khgove3.apps.googleusercontent.com</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maine">MaineActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_login">Already registred! Login Me.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="name">Fullname</string>
+    <string name="username">UserName</string>
+    <string name="auth_failed">SignIn Failed</string>
+    <string name="CLIENT_ID">900249697593-lv9hsn1ivjhgk8l6ge7lnld09mjsv6fa.apps.googleusercontent.com</string>
+    <string name="title_activity_private_maps">Map</string>
+    <string name="title_activity_public_maps">Map</string>
 </resources>
