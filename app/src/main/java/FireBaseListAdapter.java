@@ -16,9 +16,7 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author greg
@@ -32,7 +30,7 @@ import java.util.Map;
  *
  * @param <T> The class type to use as a model for the data contained in the children of the given Firebase location
  */
-public abstract class FirebaseListAdapter<T> extends BaseAdapter {
+abstract class FirebaseListAdapter<T> extends BaseAdapter {
 
     private Query mRef;
     private Class<T> mModelClass;
