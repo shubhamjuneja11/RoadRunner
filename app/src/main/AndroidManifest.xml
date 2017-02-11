@@ -17,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.PrivateMapsActivity"></activity>
         <activity android:name=".WalkActivity"></activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
