@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.junejaspc.roadrunner.R;
 import com.example.junejaspc.roadrunner.controller.ItemClickListener;
+import com.example.junejaspc.roadrunner.view.PublicMapsActivity;
 
 
 public class View_Holder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
