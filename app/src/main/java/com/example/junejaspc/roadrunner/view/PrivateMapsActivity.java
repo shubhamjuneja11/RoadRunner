@@ -73,10 +73,10 @@ LatLng s,e;
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.e("abcd",dataSnapshot.getKey());
                 Log.e("abcd",dataSnapshot.getValue().toString());
-                DistanceClass data=dataSnapshot.getValue(DistanceClass.class);
-                if(Constants.convert2(data.getEmail()).equals(MainActivity.email))
+                Double data=dataSnapshot.getValue(Double.class);
+                if(MainActivity.email.equals(Constants.convert2(dataSnapshot.getKey())))
                 {
-                    x= data.getDistance();
+                   x=data;
                 }
                 //if(data)
             }
@@ -168,6 +168,6 @@ try {
         }
     }
     public void fun3(View view){
-        firebase.push().setValue(new DistanceClass(MainActivity.email,g+x));
+        firebase.child(Constants.convert1(MainActivity.email)).setValue(x+g);
     }
 }
