@@ -6,7 +6,7 @@ public class Data {
     public String starting_point;
     public String destination_point;
     public String distance;
-
+public Data(){}
     public Data(String name, String starting_point, String destination_point, String distance) {
         this.name = name;
         this.starting_point = starting_point;

@@ -1,7 +1,7 @@
 package com.example.junejaspc.roadrunner.view;
 
 public class Constants {
-    public static String registered_users,from,requests,purchase,leader;
+    public static String registered_users,from,requests,purchase,leader,publicf;
 
     public static void fun(){
         registered_users="https://appathon-bafab.firebaseio.com/registered";
@@ -9,7 +9,9 @@ public class Constants {
         requests="https://appathon-bafab.firebaseio.com/requests";
         purchase="https://appathon-bafab.firebaseio.com/purchase";
         leader="https://appathon-bafab.firebaseio.com/leader";
+        publicf="https://appathon-bafab.firebaseio.com/public";
     }
+
     public static String convert1(String a)
     {
         String from=a;

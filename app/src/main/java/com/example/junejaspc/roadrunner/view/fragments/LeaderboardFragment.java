@@ -46,17 +46,18 @@ public class LeaderboardFragment extends Fragment {
         adapter = new Recycler_View_Adapter_Leaderboard(data, getActivity().getApplicationContext());
         recyclerView.setAdapter(adapter);
         Constants.fun();
+        final int[] i = new int[1];
         firebase=new Firebase(Constants.leader);
        // data.add(new Data_Leaderboard("ty","5.6"));
         firebase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                for(int i=0;i<data.size();i++)
+                for(i[0] =0; i[0] <data.size(); i[0]++)
                 {
-                    if(dataSnapshot.getValue(Double.class)<Double.valueOf(data.get(i).getTotal_distance()))
+                    if(dataSnapshot.getValue(Double.class)>Double.valueOf(data.get(i[0]).getTotal_distance()))
                         break;
                 }
-                data.add(new Data_Leaderboard(dataSnapshot.getKey(),dataSnapshot.getValue(String.class)));
+                data.add(i[0],new Data_Leaderboard(dataSnapshot.getKey(),dataSnapshot.getValue(String.class)));
             adapter.notifyDataSetChanged();
             }
 
