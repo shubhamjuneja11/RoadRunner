@@ -77,6 +77,9 @@ GoogleApiClient mGoogleApiClient;
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
+
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
