@@ -26,9 +26,10 @@ import java.util.List;
  */
 public class LeaderboardFragment extends Fragment {
 
-    List<Data_Leaderboard> data;
+    ArrayList<Data_Leaderboard> data;
     RecyclerView recyclerView;
     Firebase firebase;
+    Recycler_View_Adapter_Leaderboard adapter;
     public LeaderboardFragment() {
         // Required empty public constructor
     }
@@ -38,7 +39,15 @@ public class LeaderboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_leaderboard, container, false);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        data=new ArrayList<>();
+        adapter = new Recycler_View_Adapter_Leaderboard(data, getActivity().getApplicationContext());
+        recyclerView.setAdapter(adapter);
+        Constants.fun();
         firebase=new Firebase(Constants.leader);
+       // data.add(new Data_Leaderboard("ty","5.6"));
         firebase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -48,7 +57,9 @@ public class LeaderboardFragment extends Fragment {
                         break;
                 }
                 data.add(new Data_Leaderboard(dataSnapshot.getKey(),dataSnapshot.getValue(String.class)));
+            adapter.notifyDataSetChanged();
             }
+
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
@@ -70,24 +81,11 @@ public class LeaderboardFragment extends Fragment {
 
             }
         });
-        data = fillWithData();
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        Recycler_View_Adapter_Leaderboard adapter = new Recycler_View_Adapter_Leaderboard(data, getActivity().getApplicationContext());
-        recyclerView.setAdapter(adapter);
+
+
         return v;
     }
 
-    private List<Data_Leaderboard> fillWithData(){
-        List<Data_Leaderboard> data = new ArrayList<>();
-
-        for(int i = 1; i <= 12; i++){
-            data.add(new Data_Leaderboard("one", "two"));
-        }
-
-        return data;
-    }
 
 
 }

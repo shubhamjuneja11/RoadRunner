@@ -11,17 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:icon="@mipmap/ic_launcher" android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".view.PrivateMapsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.PrivateMapsActivity">
+
+        </activity>
+        <activity android:name=".view.PublicActivity"></activity>
         <activity android:name=".WalkActivity"></activity>
         <activity android:name=".view.FitApiActivity"></activity>
+        <activity android:name=".view.MaineActivity"></activity>
+<activity android:name=".view.PublicMapsActivity"></activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDAC8J5xi0OcBsaDQl9Sv8uJOv1hTEw_i8" />

@@ -77,7 +77,7 @@ LatLng s,e;
                 Log.e("ljk",MainActivity.email);
                 Log.e("ljk",Constants.convert2(dataSnapshot.getKey()));
                 if(MainActivity.email.equals(Constants.convert2(dataSnapshot.getKey())))
-                {
+                {Log.e("hihi","");
                    x=data;
                 }
                 //if(data)
@@ -85,7 +85,11 @@ LatLng s,e;
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                Double data=dataSnapshot.getValue(Double.class);
+                if(MainActivity.email.equals(Constants.convert2(dataSnapshot.getKey())))
+                {Log.e("hihi","");
+                    x=data;
+                }
             }
 
             @Override
@@ -170,6 +174,7 @@ try {
         }
     }
     public void fun3(View view){
+        Log.e("pip",MainActivity.email);
         firebase.child(Constants.convert1(MainActivity.email)).setValue(x+g);
     }
 }

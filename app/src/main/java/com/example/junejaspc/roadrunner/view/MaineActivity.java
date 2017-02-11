@@ -1,5 +1,6 @@
 package com.example.junejaspc.roadrunner.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -28,7 +29,7 @@ public class MaineActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maine);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         MainFragment mainFragment = new MainFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -101,6 +102,7 @@ public class MaineActivity extends AppCompatActivity
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, mainFragment);
             fragmentTransaction.commit();
+
         } else if (id == R.id.nav_leaderboard) {
             LeaderboardFragment leaderboardFragment = new LeaderboardFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
