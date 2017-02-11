@@ -155,6 +155,7 @@ public class PrivateMapsActivity extends FragmentActivity implements OnMapReadyC
             mMap.addMarker(new MarkerOptions().position(Patiala).title(dest.getText().toString()));
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(Patiala));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
         } catch (Exception e) {
         }
     }
@@ -210,7 +211,7 @@ public class PrivateMapsActivity extends FragmentActivity implements OnMapReadyC
     public void fun3(View view) {
         Log.e("pip", MainActivity.email);
         firebase.child(Constants.convert1(MainActivity.email)).setValue(x + g);
-        if (decide.equals("public"))
+        if (decide!=null&&decide.equals("public"))
             firebase2.push().setValue(new Data(MainActivity.email, start.getText().toString(), dest.getText().toString(),
                     dist.getText().toString()));
     }
