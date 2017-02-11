@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "856235224949-r32haos3qr3310q3u3oj28r3ck0ltd10.apps.googleusercontent.com",
+          "client_id": "900249697593-1t0ull4bron7b0527logr8ii5a26n2op.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -108,15 +108,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "856235224949-ifov0thser9hblc5bjna5lfvv2r89gii.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.junejaspc.roadrunner",
-            "certificate_hash": "5EE71DBB19D0E0B342222FB0DE145F43C1E3BBCC"
-          }
-        },
-        {
-          "client_id": "856235224949-r32haos3qr3310q3u3oj28r3ck0ltd10.apps.googleusercontent.com",
+          "client_id": "900249697593-rdtlk29bk09s6qkbpuml8ej7925pthcq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
