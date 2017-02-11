@@ -13,9 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.appbusters.robinkamboj.hackdtu.R;
-import com.appbusters.robinkamboj.hackdtu.view.fragments.LeaderboardFragment;
-import com.appbusters.robinkamboj.hackdtu.view.fragments.MainFragment;
+import com.example.junejaspc.roadrunner.R;
+import com.example.junejaspc.roadrunner.view.fragments.LeaderboardFragment;
+import com.example.junejaspc.roadrunner.view.fragments.MainFragment;
 
 public class MaineActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

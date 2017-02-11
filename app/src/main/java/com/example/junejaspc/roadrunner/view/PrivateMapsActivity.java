@@ -38,9 +38,13 @@ public class PrivateMapsActivity extends FragmentActivity implements OnMapReadyC
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng Ludhiana = new LatLng(30.90, 75.85);
+        mMap.addMarker(new MarkerOptions().position(Ludhiana).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Ludhiana));
+
+
+        LatLng Patiala = new LatLng(30.33, 76.38);
+        mMap.addMarker(new MarkerOptions().position(Patiala).title("Marker in Patiala"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Patiala));
     }
 }
