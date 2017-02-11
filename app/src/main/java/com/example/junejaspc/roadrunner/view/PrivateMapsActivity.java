@@ -74,6 +74,8 @@ LatLng s,e;
                 Log.e("abcd",dataSnapshot.getKey());
                 Log.e("abcd",dataSnapshot.getValue().toString());
                 Double data=dataSnapshot.getValue(Double.class);
+                Log.e("ljk",MainActivity.email);
+                Log.e("ljk",Constants.convert2(dataSnapshot.getKey()));
                 if(MainActivity.email.equals(Constants.convert2(dataSnapshot.getKey())))
                 {
                    x=data;
